@@ -14,10 +14,6 @@ public class Clothes {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
     public Date getEntryDay() {
         return entryDay;
     }
