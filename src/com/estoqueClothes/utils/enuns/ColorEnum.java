@@ -1,4 +1,4 @@
-package com.estoqueRoupas.utils.enuns;
+package com.estoqueClothes.utils.enuns;
 
 public enum ColorEnum {
 

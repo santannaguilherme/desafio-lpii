@@ -1,6 +1,4 @@
-package com.estoqueRoupas;
-
-import com.estoqueRoupas.utils.enuns.ColorEnum;
+package com.estoqueClothes;
 
 public class Main {
 
