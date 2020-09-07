@@ -1,4 +1,4 @@
-package com.estoqueClothes.domain.entities;
+package com.storageClothes.domain.entities;
 
 import java.util.Date;
 

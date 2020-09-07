@@ -1,4 +1,4 @@
-package com.estoqueClothes.domain.entities;
+package com.storageClothes.domain.entities;
 
 public class Brand {
     private int id;

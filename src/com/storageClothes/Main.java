@@ -1,4 +1,4 @@
-package com.estoqueClothes;
+package com.storageClothes;
 
 public class Main {
 
