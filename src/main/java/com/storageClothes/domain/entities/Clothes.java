@@ -6,7 +6,7 @@ import com.storageClothes.utils.enuns.SizeEnum;
 import java.util.Date;
 
 public class Clothes {
-    private int code;
+    private Integer code;
     private Date entryDay;
     private Brand brand;
     private double priceTag;
@@ -35,6 +35,10 @@ public class Clothes {
         return code;
     }
 
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
     public Date getEntryDay() {
         return entryDay;
     }
@@ -55,7 +59,7 @@ public class Clothes {
         return priceTag;
     }
 
-    public void setPriceTag(double priceTag) {
+    public void setPriceTag(Double priceTag) {
         this.priceTag = priceTag;
     }
 
@@ -63,7 +67,7 @@ public class Clothes {
         return paidPrice;
     }
 
-    public void setPaidPrice(double paidPrice) {
+    public void setPaidPrice(Double paidPrice) {
         this.paidPrice = paidPrice;
     }
 
@@ -75,7 +79,7 @@ public class Clothes {
         return suggestedPrice;
     }
 
-    public void setSuggestedPrice(double suggestedPrice) {
+    public void setSuggestedPrice(Double suggestedPrice) {
         this.suggestedPrice = suggestedPrice;
     }
 }
