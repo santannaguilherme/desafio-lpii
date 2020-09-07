@@ -1,4 +1,4 @@
-package com.estoqueClothes.utils.enuns;
+package com.storageClothes.utils.enuns;
 
 public enum SizeEnum {
 

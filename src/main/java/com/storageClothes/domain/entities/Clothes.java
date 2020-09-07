@@ -1,17 +1,42 @@
-package com.estoqueClothes.domain.entities;
+package com.storageClothes.domain.entities;
+
+import com.storageClothes.utils.enuns.ColorEnum;
+import com.storageClothes.utils.enuns.SizeEnum;
 
 import java.util.Date;
 
 public class Clothes {
-    private int code;
+    private Integer code;
     private Date entryDay;
     private Brand brand;
     private double priceTag;
     private double paidPrice;
     private double suggestedPrice;
+    private ColorEnum color;
+    private SizeEnum size;
+
+    public ColorEnum getColor() {
+        return color;
+    }
+
+    public void setColor(ColorEnum color) {
+        this.color = color;
+    }
+
+    public SizeEnum getSize() {
+        return size;
+    }
+
+    public void setSize(SizeEnum size) {
+        this.size = size;
+    }
 
     public int getCode() {
         return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
     public Date getEntryDay() {
@@ -34,7 +59,7 @@ public class Clothes {
         return priceTag;
     }
 
-    public void setPriceTag(double priceTag) {
+    public void setPriceTag(Double priceTag) {
         this.priceTag = priceTag;
     }
 
@@ -42,7 +67,7 @@ public class Clothes {
         return paidPrice;
     }
 
-    public void setPaidPrice(double paidPrice) {
+    public void setPaidPrice(Double paidPrice) {
         this.paidPrice = paidPrice;
     }
 
@@ -54,7 +79,7 @@ public class Clothes {
         return suggestedPrice;
     }
 
-    public void setSuggestedPrice(double suggestedPrice) {
+    public void setSuggestedPrice(Double suggestedPrice) {
         this.suggestedPrice = suggestedPrice;
     }
 }
