@@ -30,7 +30,7 @@ public class ClothesRepository {
                 c.setPaidPrice(result.getDouble("paidPrice"));
                 c.setSuggestedPrice(result.getDouble("suggestedPrice"));
 
-                BrandRepsitory b = new BrandRepsitory();
+                BrandRepository b = new BrandRepository();
                 c.setBrand(b.getById(result.getInt("brandId")));
 
                 Date date = new Date();
@@ -61,7 +61,7 @@ public class ClothesRepository {
                 c.setPaidPrice(result.getDouble("paidPrice"));
                 c.setSuggestedPrice(result.getDouble("suggestedPrice"));
 
-                BrandRepsitory b = new BrandRepsitory();
+                BrandRepository b = new BrandRepository();
                 c.setBrand(b.getById(result.getInt("brandId")));
 
                 Date date = new Date();
