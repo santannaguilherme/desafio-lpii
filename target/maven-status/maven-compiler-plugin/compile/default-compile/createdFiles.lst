@@ -1,0 +1,6 @@
+com\storageClothes\repository\DAO\ConnectionFactory.class
+com\storageClothes\utils\enuns\SizeEnum.class
+com\storageClothes\domain\entities\Brand.class
+com\storageClothes\Main.class
+com\storageClothes\utils\enuns\ColorEnum.class
+com\storageClothes\domain\entities\Clothes.class
