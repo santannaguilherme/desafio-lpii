@@ -1,5 +1,8 @@
 package com.storageClothes.domain.entities;
 
+import com.storageClothes.utils.enuns.ColorEnum;
+import com.storageClothes.utils.enuns.SizeEnum;
+
 import java.util.Date;
 
 public class Clothes {
@@ -9,6 +12,24 @@ public class Clothes {
     private double priceTag;
     private double paidPrice;
     private double suggestedPrice;
+    private ColorEnum color;
+    private SizeEnum size;
+
+    public ColorEnum getColor() {
+        return color;
+    }
+
+    public void setColor(ColorEnum color) {
+        this.color = color;
+    }
+
+    public SizeEnum getSize() {
+        return size;
+    }
+
+    public void setSize(SizeEnum size) {
+        this.size = size;
+    }
 
     public int getCode() {
         return code;
