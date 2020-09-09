@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
-        stateConsoleMachine = ConsoleStateEnum.WELCOME.getStateConsoleMachine();
+        stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
         boolean exit = false;
 
         while(!exit) {

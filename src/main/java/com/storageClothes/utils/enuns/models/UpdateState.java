@@ -1,17 +1,15 @@
 package com.storageClothes.utils.enuns.models;
 
 import com.storageClothes.Main;
-import com.storageClothes.domain.entities.Clothes;
-import com.storageClothes.service.ClotheService;
 import com.storageClothes.utils.enuns.ConsoleStateEnum;
 import com.storageClothes.utils.enuns.models.interfaces.StateConsoleMachine;
 
 import java.util.Scanner;
 
-public class CadasterState implements StateConsoleMachine {
+public class UpdateState implements StateConsoleMachine {
 
     public boolean execute() {
-        System.out.println("O que deseja cadastrar ?");
+        System.out.println("O que deseja atualizar ?");
         System.out.println("0 - roupas");
         System.out.println("1 - marcas");
         System.out.println("2 - tipo de roupa");
@@ -34,4 +32,5 @@ public class CadasterState implements StateConsoleMachine {
 
         return false;
     }
+
 }
