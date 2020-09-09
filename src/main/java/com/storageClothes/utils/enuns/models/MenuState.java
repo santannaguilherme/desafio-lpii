@@ -13,14 +13,22 @@ public class MenuState implements StateConsoleMachine {
         Scanner scan = new Scanner(System.in);
         System.out.println("0 - Sair");
         System.out.println("1 - Cadastrar");
-        int opcao = scan.nextInt();
-        switch (opcao)
+        System.out.println("2 - Remover");
+        System.out.println("3 - Atualizar");
+        System.out.println("4 - Visualizar");
+        int option = scan.nextInt();
+        switch (option)
         {
             case 0:
-                Main.stateConsoleMachine = ConsoleStateEnum.WELCOME.getStateConsoleMachine();
-                break;
+                return true;
             case 1:
                 Main.stateConsoleMachine = ConsoleStateEnum.CADASTER.getStateConsoleMachine();
+                break;
+            case 2:
+                Main.stateConsoleMachine = ConsoleStateEnum.REMOVE.getStateConsoleMachine();
+                break;
+            case 3:
+                Main.stateConsoleMachine = ConsoleStateEnum.UPDATE.getStateConsoleMachine();
                 break;
         }
         return false;
