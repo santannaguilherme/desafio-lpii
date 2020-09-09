@@ -24,8 +24,6 @@ public class ShowClothes implements StateConsoleMachine {
                 System.out.println("Código: " + clothe.getCode() + " | Nome: " + clothe.getBrand().getName());
             }
 
-            System.out.println("Pressione qualquer tecla para continuar...");
-            scan.next();
         } catch(Exception e) {
             System.out.println("Ocorreu algum erro :(");
         }

@@ -24,9 +24,6 @@ public class UpdateBrand implements StateConsoleMachine {
 
             brandService.update(brand);
             System.out.println("Marca atualizada com sucesso :)");
-            System.out.println("Pressione qualquer tecla para continuar...");
-
-            scan.next();
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao atualizar a marca :(");
         }

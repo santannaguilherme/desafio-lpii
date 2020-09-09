@@ -30,6 +30,9 @@ public class MenuState implements StateConsoleMachine {
             case 3:
                 Main.stateConsoleMachine = ConsoleStateEnum.UPDATE.getStateConsoleMachine();
                 break;
+            case 4:
+                Main.stateConsoleMachine = ConsoleStateEnum.SHOW.getStateConsoleMachine();
+                break;
         }
         return false;
     }

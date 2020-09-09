@@ -22,13 +22,9 @@ public class RemoveClothe implements StateConsoleMachine {
             clotheService.remove(id);
 
             System.out.println("A roupa foi deletada com sucesoo :)");
-            System.out.println("Pressione qualquer tecla para continuar...");
-
-            scan.next();
 
         } catch(Exception e) {
             System.out.println("Ocorreu um erro ao deletar a roupa :(");
-            System.out.println("Pressione qualquer tecla para continuar...");
         }
         Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
 

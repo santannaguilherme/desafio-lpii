@@ -23,13 +23,9 @@ public class RemoveClotheType implements StateConsoleMachine {
             clotheTypeService.remove(id);
 
             System.out.println("O tipo de roupa foi deletado com sucesso :)");
-            System.out.println("Pressione qualquer tecla para continuar...");
-
-            scan.next();
 
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao deletar o tipo de roupa :(");
-            System.out.println("Pressione qualquer tecla para continuar...");
         }
 
         Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
