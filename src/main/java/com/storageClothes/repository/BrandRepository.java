@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-class BrandRepository {
+public class BrandRepository {
     Connection con = null;
 
     public List<Brand> listAll(){
@@ -31,7 +31,7 @@ class BrandRepository {
             }
             return list;
 
-        }catch (SQLException e){
+        } catch (SQLException e){
             throw new RuntimeException(e);
         }
 
