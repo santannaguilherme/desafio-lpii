@@ -20,13 +20,13 @@ public class UpdateState implements StateConsoleMachine {
         switch (option)
         {
             case 0:
-                Main.stateConsoleMachine = ConsoleStateEnum.CADASTER_CLOTHE.getStateConsoleMachine();
+                Main.stateConsoleMachine = ConsoleStateEnum.UPDATE_CLOTHE.getStateConsoleMachine();
                 break;
             case 1:
-                Main.stateConsoleMachine = ConsoleStateEnum.CADASTER_BRAND.getStateConsoleMachine();
+                Main.stateConsoleMachine = ConsoleStateEnum.UPDATE_BRAND.getStateConsoleMachine();
                 break;
             case 2:
-                Main.stateConsoleMachine = ConsoleStateEnum.CADASTER_CLOTHE_TYPE.getStateConsoleMachine();
+                Main.stateConsoleMachine = ConsoleStateEnum.UPDATE_CLOTHE_TYPE.getStateConsoleMachine();
                 break;
         }
 

@@ -21,10 +21,11 @@ public class ShowClothes implements StateConsoleMachine {
             List<Clothes> clothes = clotheService.getAll();
 
             for (Clothes clothe : clothes) {
-                System.out.println("Código: " + clothe.getCode() + " | Nome: " + clothe.getBrand().getName());
+                System.out.println("Código: " + clothe.getCode() + " | Nome: " + clothe.getColor());
             }
 
         } catch(Exception e) {
+            System.out.println(e.getMessage());
             System.out.println("Ocorreu algum erro :(");
         }
         Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
