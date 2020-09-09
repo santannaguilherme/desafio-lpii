@@ -9,13 +9,7 @@ import java.util.Scanner;
 public class LoginState implements StateConsoleMachine {
 
     public boolean execute() {
-        User user = new User();
-        Scanner scan = new Scanner(System.in);
-        System.out.println("**** LOGIN ****");
-        System.out.println("Digite seu usuário");
-        user.setUsername(scan.nextLine());
-        System.out.println("Digite sua senha");
-        user.setPassword(scan.nextLine());
+
 
 
         // Acesso acesso = new Acesso();

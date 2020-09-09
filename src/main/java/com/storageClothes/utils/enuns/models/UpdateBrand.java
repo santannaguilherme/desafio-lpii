@@ -1,7 +1,9 @@
 package com.storageClothes.utils.enuns.models;
 
+import com.storageClothes.Main;
 import com.storageClothes.domain.entities.Brand;
 import com.storageClothes.service.BrandService;
+import com.storageClothes.utils.enuns.ConsoleStateEnum;
 import com.storageClothes.utils.enuns.models.interfaces.StateConsoleMachine;
 
 import java.util.Scanner;
@@ -27,6 +29,8 @@ public class UpdateBrand implements StateConsoleMachine {
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao atualizar a marca :(");
         }
+
+        Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
 
         return false;
     }
