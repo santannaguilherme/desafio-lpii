@@ -2,6 +2,7 @@ package com.storageClothes.utils.enuns.models;
 
 import com.storageClothes.Main;
 import com.storageClothes.service.BrandService;
+import com.storageClothes.service.Crud;
 import com.storageClothes.utils.enuns.ConsoleStateEnum;
 import com.storageClothes.utils.enuns.models.interfaces.StateConsoleMachine;
 
@@ -16,7 +17,7 @@ public class RemoveBrand implements StateConsoleMachine {
 
             int id = scan.nextInt();
 
-            BrandService brandService = new BrandService();
+            Crud brandService = new BrandService();
 
             brandService.remove(id);
 

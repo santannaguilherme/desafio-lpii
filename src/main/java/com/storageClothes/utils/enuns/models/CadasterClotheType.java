@@ -3,6 +3,7 @@ package com.storageClothes.utils.enuns.models;
 import com.storageClothes.Main;
 import com.storageClothes.domain.entities.ClotheType;
 import com.storageClothes.service.ClotheTypeService;
+import com.storageClothes.service.Crud;
 import com.storageClothes.utils.enuns.ConsoleStateEnum;
 import com.storageClothes.utils.enuns.models.interfaces.StateConsoleMachine;
 
@@ -19,7 +20,7 @@ public class CadasterClotheType implements StateConsoleMachine {
             System.out.println("Por favor, insira o nome do tipo de roupa.");
             clotheType.setClotheTypeName(scan.next());
 
-            ClotheTypeService clotheTypeService = new ClotheTypeService();
+            Crud clotheTypeService = new ClotheTypeService();
 
             clotheTypeService.add(clotheType);
             System.out.println("Tipo de roupa cadastrado com sucesso :)");

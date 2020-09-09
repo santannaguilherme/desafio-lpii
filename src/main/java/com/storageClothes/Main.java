@@ -1,7 +1,9 @@
 package com.storageClothes;
 
 import com.storageClothes.repository.DAO.ConnectionFactory;
+import com.storageClothes.utils.enuns.ColorEnum;
 import com.storageClothes.utils.enuns.ConsoleStateEnum;
+import com.storageClothes.utils.enuns.SizeEnum;
 import com.storageClothes.utils.enuns.models.interfaces.StateConsoleMachine;
 
 import java.sql.Connection;
@@ -16,6 +18,9 @@ public class Main {
 
         stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
         boolean exit = false;
+
+        System.out.println(SizeEnum.valueOf("M"));
+
 
         while(!exit) {
             exit = stateConsoleMachine.execute();

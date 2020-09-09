@@ -2,6 +2,7 @@ package com.storageClothes.utils.enuns.models;
 
 import com.storageClothes.Main;
 import com.storageClothes.service.ClotheService;
+import com.storageClothes.service.Crud;
 import com.storageClothes.utils.enuns.ConsoleStateEnum;
 import com.storageClothes.utils.enuns.models.interfaces.StateConsoleMachine;
 
@@ -13,7 +14,7 @@ public class RemoveClothe implements StateConsoleMachine {
 
         try {
             Scanner scan = new Scanner(System.in);
-            ClotheService clotheService = new ClotheService();
+            Crud clotheService = new ClotheService();
 
             System.out.println("Por favor, insira o código da roupa que você gostaria de deletar.");
             int id = scan.nextInt();

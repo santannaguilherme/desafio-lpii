@@ -5,6 +5,7 @@ import com.storageClothes.domain.entities.Brand;
 import com.storageClothes.domain.entities.ClotheType;
 import com.storageClothes.service.BrandService;
 import com.storageClothes.service.ClotheTypeService;
+import com.storageClothes.service.Crud;
 import com.storageClothes.utils.enuns.ConsoleStateEnum;
 import com.storageClothes.utils.enuns.models.interfaces.StateConsoleMachine;
 
@@ -22,7 +23,7 @@ public class UpdateClotheType implements StateConsoleMachine {
             System.out.println("Por favor, digite o novo nome do tipo de roupa.");
             clotheType.setClotheTypeName(scan.next());
 
-            ClotheTypeService clotheTypeService = new ClotheTypeService();
+            Crud clotheTypeService = new ClotheTypeService();
 
             clotheTypeService.update(clotheType);
             System.out.println("Tipo de roupa atualizado com sucesso :)");

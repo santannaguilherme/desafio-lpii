@@ -5,6 +5,7 @@ import com.storageClothes.domain.entities.Brand;
 import com.storageClothes.domain.entities.Clothes;
 import com.storageClothes.service.BrandService;
 import com.storageClothes.service.ClotheService;
+import com.storageClothes.service.Crud;
 import com.storageClothes.utils.enuns.ConsoleStateEnum;
 import com.storageClothes.utils.enuns.models.interfaces.StateConsoleMachine;
 
@@ -24,7 +25,7 @@ public class CadasterBrand implements StateConsoleMachine {
             System.out.println(intialMessage + "o nome da marca");
             brand.setName(scan.next());
 
-            BrandService brandService = new BrandService();
+            Crud brandService = new BrandService();
             brandService.add(brand);
 
             System.out.println("Produto cadastrado com sucesso!");
