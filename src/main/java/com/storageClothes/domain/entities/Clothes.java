@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class Clothes {
     private Integer code;
-    private Date entryDay;
+    private String entryDay;
     private Brand brand;
     private double priceTag;
     private double paidPrice;
@@ -39,11 +39,11 @@ public class Clothes {
         this.code = code;
     }
 
-    public Date getEntryDay() {
+    public String getEntryDay() {
         return entryDay;
     }
 
-    public void setEntryDay(Date entryDay) {
+    public void setEntryDay(String entryDay) {
         this.entryDay = entryDay;
     }
 
