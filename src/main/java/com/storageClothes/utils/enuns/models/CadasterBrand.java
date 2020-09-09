@@ -14,10 +14,11 @@ import java.util.Scanner;
 public class CadasterBrand implements StateConsoleMachine {
 
     public boolean execute() {
+        Scanner scan = new Scanner(System.in);
+
         try {
             String intialMessage = "Por favor, insira ";
             Brand brand = new Brand();
-            Scanner scan = new Scanner(System.in);
 
             System.out.println(intialMessage + "o código da marca");
             brand.setId(scan.nextInt());
@@ -33,6 +34,8 @@ public class CadasterBrand implements StateConsoleMachine {
             System.out.println("Erro ao cadastrar o produto!");
         }
 
+        System.out.println("Pressione qualquer tecla para continuar...");
+        scan.nextLine();
         Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
 
         return false;

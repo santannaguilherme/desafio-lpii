@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class RemoveClotheType implements StateConsoleMachine {
 
     public boolean execute() {
+        Scanner scan = new Scanner(System.in);
         try {
-            Scanner scan = new Scanner(System.in);
             System.out.println("Por favor, insira o id do tipo de roupa que deseja remover.");
 
             int id = scan.nextInt();
@@ -27,6 +27,9 @@ public class RemoveClotheType implements StateConsoleMachine {
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao deletar o tipo de roupa :(");
         }
+
+        System.out.println("Pressione qualquer tecla para continuar...");
+        scan.nextLine();
 
         Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
 

@@ -31,6 +31,9 @@ public class UpdateClotheType implements StateConsoleMachine {
             System.out.println("Ocorreu um erro ao atualizar o tipo de roupa :(");
         }
 
+        System.out.println("Pressione qualquer tecla para continuar...");
+        scan.nextLine();
+
         Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
 
         return false;

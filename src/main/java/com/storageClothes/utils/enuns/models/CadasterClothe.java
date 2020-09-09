@@ -74,6 +74,9 @@ public class CadasterClothe implements StateConsoleMachine {
             System.out.println(e.getMessage());
         }
 
+        System.out.println("Pressione qualquer tecla para continuar...");
+        scan.nextLine();
+
         Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
 
         return false;

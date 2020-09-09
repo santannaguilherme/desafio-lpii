@@ -19,7 +19,7 @@ public class UpdateClothe implements StateConsoleMachine {
         Clothes clothe = new Clothes();
 
         try {
-            System.out.println("Selecione o id de uma das seguintes roupas que vocÊ deseja alterar.");
+            System.out.println("Selecione o id de uma das seguintes roupas que você deseja alterar.");
             this.showClothes();
             clothe.setCode(scan.nextInt());
 
@@ -52,6 +52,9 @@ public class UpdateClothe implements StateConsoleMachine {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
+        System.out.println("Pressione qualquer tecla para continuar...");
+        scan.nextLine();
         Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
 
         return false;

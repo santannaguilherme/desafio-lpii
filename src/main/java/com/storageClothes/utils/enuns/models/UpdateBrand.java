@@ -30,6 +30,9 @@ public class UpdateBrand implements StateConsoleMachine {
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao atualizar a marca :(");
         }
+        System.out.println("Pressione qualquer tecla para continuar...");
+        scan.nextLine();
+
 
         Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
 

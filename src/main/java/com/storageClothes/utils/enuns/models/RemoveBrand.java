@@ -11,8 +11,9 @@ import java.util.Scanner;
 public class RemoveBrand implements StateConsoleMachine {
 
     public boolean execute() {
+        Scanner scan = new Scanner(System.in);
+
         try {
-            Scanner scan = new Scanner(System.in);
             System.out.println("Por favor, insira o id da marca que vocÊ deseja remover.");
 
             int id = scan.nextInt();
@@ -21,12 +22,14 @@ public class RemoveBrand implements StateConsoleMachine {
 
             brandService.remove(id);
 
-            System.out.println("A roupa foi deletada com sucesso :)");
+            System.out.println("A marca foi deletada com sucesso :)");
 
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao deletar a marca :(");
         }
 
+        System.out.println("Pressione qualquer tecla para continuar...");
+        scan.nextLine();
         Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
 
         return false;
