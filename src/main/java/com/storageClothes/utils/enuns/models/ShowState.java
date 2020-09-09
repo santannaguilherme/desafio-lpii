@@ -20,13 +20,13 @@ public class ShowState implements StateConsoleMachine {
         switch (option)
         {
             case 0:
-                Main.stateConsoleMachine = ConsoleStateEnum.CADASTER_CLOTHE.getStateConsoleMachine();
+                Main.stateConsoleMachine = ConsoleStateEnum.SHOW_CLOTHES.getStateConsoleMachine();
                 break;
             case 1:
-                Main.stateConsoleMachine = ConsoleStateEnum.CADASTER_BRAND.getStateConsoleMachine();
+                Main.stateConsoleMachine = ConsoleStateEnum.SHOW_BRANDS.getStateConsoleMachine();
                 break;
             case 2:
-                Main.stateConsoleMachine = ConsoleStateEnum.CADASTER_CLOTHE_TYPE.getStateConsoleMachine();
+                Main.stateConsoleMachine = ConsoleStateEnum.SHOW_CLOTHE_TYPE.getStateConsoleMachine();
                 break;
         }
 

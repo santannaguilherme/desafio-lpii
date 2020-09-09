@@ -27,9 +27,6 @@ public class UpdateClotheType implements StateConsoleMachine {
 
             clotheTypeService.update(clotheType);
             System.out.println("Tipo de roupa atualizado com sucesso :)");
-            System.out.println("Pressione qualquer tecla para continuar...");
-
-            scan.next();
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao atualizar o tipo de roupa :(");
         }
