@@ -27,6 +27,9 @@ public class CadasterClotheType implements StateConsoleMachine {
         } catch (Exception e) {
             System.out.println("Erro ao cadastrar o tipo de roupa :(");
         }
+        System.out.println("Pressione qualquer tecla para continuar...");
+        scan.nextLine();
+
         Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
 
         return false;

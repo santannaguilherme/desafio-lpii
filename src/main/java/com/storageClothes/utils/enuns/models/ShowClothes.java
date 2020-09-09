@@ -9,6 +9,7 @@ import com.storageClothes.service.Crud;
 import com.storageClothes.utils.enuns.ConsoleStateEnum;
 import com.storageClothes.utils.enuns.models.interfaces.StateConsoleMachine;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,12 +22,21 @@ public class ShowClothes implements StateConsoleMachine {
             List<Clothes> clothes = clotheService.getAll();
 
             for (Clothes clothe : clothes) {
-                System.out.println("Código: " + clothe.getCode() + " | Nome: " + clothe.getBrand().getName());
+                System.out.println("Código: " + clothe.getCode() + " | Cor: " + clothe.getColor() +
+                        " | Data de entrada: " + clothe.getEntryDay() + " | Preço pago: " + clothe.getPaidPrice() +
+                        " | Preço de etiqueta: " + clothe.getPriceTag());
             }
 
-        } catch(Exception e) {
+        } catch (FileNotFoundException e) {
+            System.out.println("Não existem roupas cadastradas...");
+        }
+        catch(Exception e) {
+            System.out.println(e.getMessage());
             System.out.println("Ocorreu algum erro :(");
         }
+        System.out.println("Pressione qualquer tecla para continuar...");
+        scan.nextLine();
+
         Main.stateConsoleMachine = ConsoleStateEnum.MENU.getStateConsoleMachine();
 
         return false;
