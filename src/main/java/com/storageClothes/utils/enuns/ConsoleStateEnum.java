@@ -1,16 +1,15 @@
 package com.storageClothes.utils.enuns;
 
-import com.storageClothes.utils.enuns.models.CadasterState;
-import com.storageClothes.utils.enuns.models.LoginState;
-import com.storageClothes.utils.enuns.models.MenuState;
-import com.storageClothes.utils.enuns.models.WelcomeState;
+import com.storageClothes.utils.enuns.models.*;
 import com.storageClothes.utils.enuns.models.interfaces.StateConsoleMachine;
 
 public enum ConsoleStateEnum {
     LOGIN(new LoginState()),
     WELCOME(new WelcomeState()),
     MENU(new MenuState()),
-    CADASTER_CLOTHE(new CadasterState());
+    CADASTER(new CadasterState()),
+    CADASTER_CLOTHE(new CadasterClothe()),
+    CADASTER_BRAND(new CadasterBrand());
 
     private final StateConsoleMachine stateConsoleMachine;
 

@@ -14,13 +14,6 @@ public class Main {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
-        if (false) {
-            Connection con = new ConnectionFactory().getConnection();
-            System.out.println("Show");
-            con.close();
-        }
-
-
         stateConsoleMachine = ConsoleStateEnum.WELCOME.getStateConsoleMachine();
         boolean exit = false;
 

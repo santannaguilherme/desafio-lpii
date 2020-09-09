@@ -12,7 +12,7 @@ public class MenuState implements StateConsoleMachine {
         System.out.println("*** Menu Principal");
         Scanner scan = new Scanner(System.in);
         System.out.println("0 - Sair");
-        System.out.println("1 - Cadastrar roupa");
+        System.out.println("1 - Cadastrar");
         int opcao = scan.nextInt();
         switch (opcao)
         {
@@ -20,7 +20,7 @@ public class MenuState implements StateConsoleMachine {
                 Main.stateConsoleMachine = ConsoleStateEnum.WELCOME.getStateConsoleMachine();
                 break;
             case 1:
-                Main.stateConsoleMachine = ConsoleStateEnum.CADASTER_CLOTHE.getStateConsoleMachine();
+                Main.stateConsoleMachine = ConsoleStateEnum.CADASTER.getStateConsoleMachine();
                 break;
         }
         return false;

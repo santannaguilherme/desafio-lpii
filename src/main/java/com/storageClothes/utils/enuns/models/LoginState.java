@@ -1,7 +1,6 @@
 package com.storageClothes.utils.enuns.models;
 
 import com.storageClothes.Main;
-import com.storageClothes.domain.entities.User;
 import com.storageClothes.utils.enuns.ConsoleStateEnum;
 import com.storageClothes.utils.enuns.models.interfaces.StateConsoleMachine;
 
