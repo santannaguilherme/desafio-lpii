@@ -21,7 +21,11 @@ public enum ConsoleStateEnum {
     SHOW_BRANDS(new ShowBrands()),
     UPDATE_CLOTHE_TYPE(new UpdateClotheType()),
     UPDATE_CLOTHE(new UpdateClothe()),
+    SHOW_CLOTHES_BY_ID(new ShowClothesById()),
+    SHOW_BRAND_BY_ID(new ShowBrandById()),
+    SHOW_CLOTHE_TYPE_BY_ID(new ShowClotheTypeById()),
     UPDATE_BRAND(new UpdateBrand());
+
 
     private final StateConsoleMachine stateConsoleMachine;
 
