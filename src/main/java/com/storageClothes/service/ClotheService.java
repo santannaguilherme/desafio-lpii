@@ -12,7 +12,7 @@ public class ClotheService implements Crud<Clothes>  {
         this.clothesRepository = new ClothesRepository();
     }
 
-    public void add(Clothes clothe) {
+    public void add(Clothes clothe) throws Exception {
         if (clothe == null) {
             return;
         }
@@ -20,20 +20,20 @@ public class ClotheService implements Crud<Clothes>  {
         this.clothesRepository.insert(clothe);
     }
 
-    public void remove(int id) {
+    public void remove(int id) throws Exception {
 
        this.clothesRepository.deleteById(id);
     }
 
-    public void update(Clothes clothe) {
+    public void update(Clothes clothe) throws Exception {
         this.clothesRepository.update(clothe.getCode(), clothe);
     }
 
-    public List<Clothes> getAll() {
+    public List<Clothes> getAll() throws Exception {
         return this.clothesRepository.listAll();
     }
 
-    public Clothes getById(int id) {
+    public Clothes getById(int id) throws Exception {
         return this.clothesRepository.getById(id);
     }
 }

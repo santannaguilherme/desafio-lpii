@@ -4,13 +4,13 @@ import java.util.List;
 
 public interface Crud<T> {
 
-    public void add(T model);
+    public void add(T model) throws Exception;
 
-    public void remove(int id);
+    public void remove(int id) throws Exception;
 
-    public void update(T model);
+    public void update(T model) throws Exception;
 
-    public List<T> getAll();
+    public List<T> getAll() throws Exception;
 
-    public T getById(int id);
+    public T getById(int id) throws Exception;
 }

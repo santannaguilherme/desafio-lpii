@@ -25,7 +25,7 @@ public class CadasterClothe implements StateConsoleMachine {
             System.out.println("Por favor, insira o código da roupa");
             clothes.setCode(scan.nextInt());
             System.out.println("Por favor, insira a data de entrada (dd/mm/aaaa)");
-            clothes.setEntryDay(new SimpleDateFormat().parse(scan.next()));
+            clothes.setEntryDay(scan.next());
             System.out.println("Por favor, insira o local da compra");
             Crud brandService = new BrandService();
             Crud clotheService = new ClotheService();
