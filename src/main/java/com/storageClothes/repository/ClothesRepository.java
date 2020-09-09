@@ -24,10 +24,7 @@ public class ClothesRepository {
 
         Scanner s = new Scanner(new File(FILE_NAME));
         while (s.hasNext()) {
-           String[] k = s.nextLine().split(";");
-            for(int i = 0;i<k.length;i++){
-                System.out.println(k[i]);
-            }
+            String[] k = s.nextLine().split(";");
             Clothes c = new Clothes();
             c.setCode(Integer.valueOf(k[0]));
             c.setSize(SizeEnum.valueOf(k[7]));
@@ -103,7 +100,7 @@ public class ClothesRepository {
                 clothe.getSize().getSizeName() + "\n";
 
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME,true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true));
             writer.write(c);
 
             writer.close();
