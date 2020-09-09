@@ -3,6 +3,7 @@ package com.storageClothes.utils.enuns.models;
 import com.storageClothes.Main;
 import com.storageClothes.domain.entities.Brand;
 import com.storageClothes.service.BrandService;
+import com.storageClothes.service.Crud;
 import com.storageClothes.utils.enuns.ConsoleStateEnum;
 import com.storageClothes.utils.enuns.models.interfaces.StateConsoleMachine;
 
@@ -19,7 +20,7 @@ public class UpdateBrand implements StateConsoleMachine {
             System.out.println("Por favor, digite o novo nome da marca.");
             brand.setName(scan.next());
 
-            BrandService brandService = new BrandService();
+            Crud brandService = new BrandService();
 
             brandService.update(brand);
             System.out.println("Marca atualizada com sucesso :)");

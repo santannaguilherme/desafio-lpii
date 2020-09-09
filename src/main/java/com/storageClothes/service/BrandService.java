@@ -12,7 +12,7 @@ public class BrandService implements Crud<Brand> {
         this.brandRepository = new BrandRepository();
     }
 
-    public void add(Brand brand) {
+    public void add(Brand brand) throws Exception {
         if (brand == null) {
             return;
         }
@@ -20,22 +20,19 @@ public class BrandService implements Crud<Brand> {
         this.brandRepository.insert(brand);
     }
 
-    public void remove(int id) {
-
+    public void remove(int id) throws Exception {
         this.brandRepository.deleteById(id);
     }
 
-    public void update(Brand brand) {
-
+    public void update(Brand brand) throws Exception {
         this.brandRepository.update(brand.getId(), brand);
     }
 
-    public List<Brand> getAll() {
+    public List<Brand> getAll() throws Exception {
         return this.brandRepository.listAll();
     }
 
-    public Brand getById(int id) {
-
+    public Brand getById(int id) throws Exception {
         return this.brandRepository.getById(id);
     }
 }
