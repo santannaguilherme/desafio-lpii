@@ -15,21 +15,7 @@ import java.text.SimpleDateFormat;
 
 public class Main {
 
-    public static void main(String[] args) throws ParseException, FileNotFoundException {
-        Clothes c = new Clothes();
-        c.setCode(1);
-        c.setEntryDay("2020-10-10");
-        c.setBrand(new Brand());
-        c.setPaidPrice(1.11);
-        c.setSuggestedPrice(1.12);
-        c.setPriceTag(1.13);
-        c.setSize(SizeEnum.G);
-        c.setColor(ColorEnum.RED);
-
-        ClothesRepository cr = new ClothesRepository();
-        //cr.insert(c);
-        //Clothes cl = cr.getById(1);
-        cr.update(1,c);
+    public static void main(String[] args){
 
 
     }

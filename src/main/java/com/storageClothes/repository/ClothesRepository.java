@@ -64,7 +64,7 @@ public class ClothesRepository {
         List<Clothes> l = listAll();
         for (int i = 0; i < l.size(); i++) {
             if (l.get(i).getCode() == id) {
-                l.remove(id);
+                l.remove(i);
                 break;
             }
         }
@@ -80,7 +80,7 @@ public class ClothesRepository {
         List<Clothes> l = listAll();
         for (int i = 0; i < l.size(); i++) {
             if (l.get(i).getCode() == id) {
-                l.remove(id);
+                l.remove(i);
                 break;
             }
         }
