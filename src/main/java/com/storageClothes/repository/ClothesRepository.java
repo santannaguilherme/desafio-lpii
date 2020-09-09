@@ -4,110 +4,80 @@ import com.storageClothes.domain.entities.Clothes;
 import com.storageClothes.utils.enuns.ColorEnum;
 import com.storageClothes.utils.enuns.SizeEnum;
 
+import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class ClothesRepository {
-    Connection con = null;
+    static final String FILE_NAME = "clothes.txt";
 
-    public List<Clothes> listAll(){
+    public List<Clothes> listAll() throws FileNotFoundException, ParseException {
         List<Clothes> list = new ArrayList<Clothes>();
-        String sql = "select * from clothes";
-        try {
-            PreparedStatement stmt = this.con.prepareStatement(sql);
-            ResultSet result = stmt.executeQuery();
-            while (result.next()){
-                Clothes c = new Clothes();
-                c.setCode(result.getInt("code"));
-                c.setSize(SizeEnum.valueOf(result.getString("size")));
-                c.setColor(ColorEnum.valueOf(result.getString("color")));
-                c.setPriceTag(result.getDouble("priceTag"));
-                c.setPaidPrice(result.getDouble("paidPrice"));
-                c.setSuggestedPrice(result.getDouble("suggestedPrice"));
 
-                BrandRepository b = new BrandRepository();
-                c.setBrand(b.getById(result.getInt("brandId")));
+        Scanner s = new Scanner(new File(FILE_NAME));
+        while (s.hasNext()){
+            String[] k = s.next().split("|");
+            Clothes c = new Clothes();
+            c.setCode(Integer.valueOf(k[0]));
+            c.setSize(SizeEnum.valueOf(k[7]));
+            c.setColor(ColorEnum.valueOf(k[8]));
+            c.setPriceTag(Double.valueOf(k[3]));
+            c.setPaidPrice(Double.valueOf(k[4]));
+            c.setSuggestedPrice(Double.valueOf(k[5]));
 
-                Date date = new Date();
-                date.setTime(result.getDate("entryDay").getTime());
-                c.setEntryDay(date);
+            BrandRepository b = new BrandRepository();
+            c.setBrand(b.getById(Integer.valueOf(k[2])));
 
-                list.add(c);
-            }
-            return list;
-
-        }catch (SQLException e){
-            throw new RuntimeException(e);
+            Date date = new SimpleDateFormat("yyyy/MM/dd").parse(k[1]);
+            c.setEntryDay(date);
+            list.add(c);
         }
 
+        s.close();
+        return list;
     }
     public Clothes getById(int id){
+
         Clothes c = new Clothes();
         String sql = "select * from clothes where code = " + id;
 
-        try {
-            PreparedStatement stmt = this.con.prepareStatement(sql);
-            ResultSet result = stmt.executeQuery();
-            while (result.next()){
-                c.setCode(result.getInt("code"));
-                c.setSize(SizeEnum.valueOf(result.getString("size")));
-                c.setColor(ColorEnum.valueOf(result.getString("color")));
-                c.setPriceTag(result.getDouble("priceTag"));
-                c.setPaidPrice(result.getDouble("paidPrice"));
-                c.setSuggestedPrice(result.getDouble("suggestedPrice"));
-
-                BrandRepository b = new BrandRepository();
-                c.setBrand(b.getById(result.getInt("brandId")));
-
-                Date date = new Date();
-                date.setTime(result.getDate("entryDay").getTime());
-                c.setEntryDay(date);
-            }
             return c;
-
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
 
 
     }
 
     public void deleteById(int id){
         String sql = "delete from clothes where code = " + id;
-        try{
-            PreparedStatement stmt = this.con.prepareStatement(sql);
-            stmt.execute();
-            stmt.close();
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
+
     }
 
     public void update(int id,Clothes clothes){
 
     }
     public void insert(Clothes clothe){
-        String sql = "insert into clothes " +
-                "(entryDay,brandId,priceTag,paidPrice,suggestedPrice,color,size)" +
-                "values (?,?,?,?,?,?,?)";
-        try{
-            PreparedStatement stmt = this.con.prepareStatement(sql);
-            stmt.setString(1,clothe.getEntryDay().toString());
-            stmt.setString(2,clothe.getBrand().getId().toString());
-            stmt.setString(3,String.valueOf(clothe.getPriceTag()));
-            stmt.setString(4,String.valueOf(clothe.getPaidPrice()));
-            stmt.setString(5,String.valueOf(clothe.getSuggestedPrice()));
-            stmt.setString(6,clothe.getColor().getColorName());
-            stmt.setString(7,clothe.getSize().getSizeName());
+        String c = clothe.getCode()+"|"+
+                clothe.getEntryDay().toString()+"|"+
+                clothe.getBrand().getId()+"|"+
+                clothe.getPriceTag()+"|"+
+                clothe.getPaidPrice()+"|"+
+                clothe.getSuggestedPrice()+"|"+
+                clothe.getColor().getColorName()+"|"+
+                clothe.getSize().getSizeName()+"\n";
 
-            stmt.execute();
-            stmt.close();
-        }catch (SQLException e){
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME));
+            writer.write(c);
+
+            writer.close();
+        }catch (IOException e){
             throw new RuntimeException(e);
         }
     }
