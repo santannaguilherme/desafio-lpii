@@ -1,87 +1,99 @@
 package com.storageClothes.repository;
 
 import com.storageClothes.domain.entities.Brand;
-import com.storageClothes.domain.entities.Clothes;
-import com.storageClothes.utils.enuns.ColorEnum;
-import com.storageClothes.utils.enuns.SizeEnum;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.*;
+import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class BrandRepository {
-    Connection con = null;
+    static final String FILE_NAME = "brand.txt";
 
-    public List<Brand> listAll(){
+    public List<Brand> listAll() throws FileNotFoundException, ParseException {
         List<Brand> list = new ArrayList<Brand>();
-        String sql = "select * from brand";
-        try {
-            PreparedStatement stmt = this.con.prepareStatement(sql);
-            ResultSet result = stmt.executeQuery();
-            while (result.next()){
-                Brand b = new Brand();
-                b.setId(result.getInt("id"));
-                b.setName(result.getString("name"));
 
-                list.add(b);
+        Scanner s = new Scanner(new File(FILE_NAME));
+        while (s.hasNext()) {
+            String[] k = s.nextLine().split(";");
+            Brand b = new Brand();
+            b.setId(Integer.valueOf(k[0]));
+            b.setName(k[1]);
+            list.add(b);
+        }
+
+        s.close();
+        return list;
+    }
+
+    public Brand getById(int id) throws FileNotFoundException, ParseException {
+
+        List<Brand> l = listAll();
+        Brand b = null;
+        for (int i = 0; i < l.size(); i++) {
+            if (l.get(i).getId() == id) {
+                b = l.get(i);
+                break;
             }
-            return list;
+        }
+        return b;
 
-        } catch (SQLException e){
-            throw new RuntimeException(e);
+    }
+
+    public void deleteById(int id) throws FileNotFoundException, ParseException {
+        List<Brand> l = listAll();
+        for (int i = 0; i < l.size(); i++) {
+            if (l.get(i).getId() == id) {
+                l.remove(i);
+                break;
+            }
+        }
+        deleteFile();
+        for (int i = 0; i < l.size(); i++) {
+            insert(l.get(i));
+        }
+
+
+    }
+
+    public void update(int id, Brand brand) throws FileNotFoundException, ParseException {
+        List<Brand> l = listAll();
+        for (int i = 0; i < l.size(); i++) {
+            if (l.get(i).getId() == id) {
+                l.remove(i);
+                break;
+            }
+        }
+        l.add(brand);
+        deleteFile();
+        for (int i = 0; i < l.size(); i++) {
+            insert(l.get(i));
         }
 
     }
-    public Brand getById(int id){
-        Brand b = new Brand();
-        String sql = "select * from brand where code = " + id;
+
+    public void insert(Brand brand) {
+        String c = brand.getId() + ";" +
+                brand.getName() + "\n";
 
         try {
-            PreparedStatement stmt = this.con.prepareStatement(sql);
-            ResultSet result = stmt.executeQuery();
-            while (result.next()){
-                b.setId(result.getInt("id"));
-                b.setName(result.getString("name"));
-            }
-            return b;
+            BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true));
+            writer.write(c);
 
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-
-
-    }
-
-    public void deleteById(int id){
-        String sql = "delete from brand where code = " + id;
-        try{
-            PreparedStatement stmt = this.con.prepareStatement(sql);
-            stmt.execute();
-            stmt.close();
-        }catch (SQLException e){
+            writer.close();
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void update(int id,Brand brand){
-
-    }
-    public void insert(Brand brand){
-        String sql = "insert into brand " +
-                "(name)" +
-                "values (?)";
-        try{
-            PreparedStatement stmt = this.con.prepareStatement(sql);
-            stmt.setString(1,brand.getName());
-
-            stmt.execute();
-            stmt.close();
-        }catch (SQLException e){
-            throw new RuntimeException(e);
+    private void deleteFile() {
+        try {
+            File f = new File(FILE_NAME);
+            f.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
+
