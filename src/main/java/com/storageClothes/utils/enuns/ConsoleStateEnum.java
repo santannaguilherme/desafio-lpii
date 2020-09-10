@@ -10,6 +10,7 @@ public enum ConsoleStateEnum {
     REMOVE(new RemoveState()),
     UPDATE(new UpdateState()),
     SHOW(new ShowState()),
+    SHOW_BY_ID(new ShowByIdState()),
     CADASTER_CLOTHE(new CadasterClothe()),
     CADASTER_BRAND(new CadasterBrand()),
     CADASTER_CLOTHE_TYPE(new CadasterClotheType()),

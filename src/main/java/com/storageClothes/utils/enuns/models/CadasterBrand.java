@@ -31,7 +31,8 @@ public class CadasterBrand implements StateConsoleMachine {
 
             System.out.println("Produto cadastrado com sucesso!");
         } catch (Exception e) {
-            System.out.println("Erro ao cadastrar o produto!");
+            System.out.println("Erro ao cadastrar o tipo de roupa!");
+            System.out.println(e.getMessage());
         }
 
         System.out.println("Pressione qualquer tecla para continuar...");

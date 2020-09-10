@@ -3,8 +3,6 @@ package com.storageClothes.domain.entities;
 import com.storageClothes.utils.enuns.ColorEnum;
 import com.storageClothes.utils.enuns.SizeEnum;
 
-import java.util.Date;
-
 public class Clothes {
     private Integer code;
     private String entryDay;

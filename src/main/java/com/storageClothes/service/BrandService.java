@@ -1,6 +1,7 @@
 package com.storageClothes.service;
 
 import com.storageClothes.domain.entities.Brand;
+import com.storageClothes.domain.entities.Clothes;
 import com.storageClothes.repository.BrandRepository;
 
 import java.util.List;
@@ -13,8 +14,12 @@ public class BrandService implements Crud<Brand> {
     }
 
     public void add(Brand brand) throws Exception {
-        if (brand == null) {
-            return;
+        List<Brand> brands = this.brandRepository.listAll();
+
+        for (Brand auxBrand : brands) {
+            if (auxBrand.getId() == brand.getId()) {
+                throw new Exception("Já existe uma marca com esse id...");
+            }
         }
 
         this.brandRepository.insert(brand);

@@ -64,7 +64,7 @@ public class CadasterClothe implements StateConsoleMachine {
             System.out.println("Por favor, insira o tamanho.");
             String size = scan.next().toUpperCase();
 
-            clothes.setSize(SizeEnum.valueOf(size.toUpperCase()));
+            clothes.setSize(SizeEnum.P);
             clotheService.add(clothes);
 
             System.out.println("Roupa adicionada com sucesso.");
