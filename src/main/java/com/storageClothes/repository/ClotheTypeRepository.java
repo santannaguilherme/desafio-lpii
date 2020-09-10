@@ -71,7 +71,6 @@ public class ClotheTypeRepository {
         for (int i = 0; i < l.size(); i++) {
             insert(l.get(i));
         }
-
     }
 
     public void insert(ClotheType clotheType) {

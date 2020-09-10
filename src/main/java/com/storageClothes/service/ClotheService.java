@@ -13,8 +13,13 @@ public class ClotheService implements Crud<Clothes>  {
     }
 
     public void add(Clothes clothe) throws Exception {
-        if (clothe == null) {
-            return;
+
+        List<Clothes> clothes = this.clothesRepository.listAll();
+
+        for (Clothes auxClothe : clothes) {
+            if (auxClothe.getCode() == clothe.getCode()) {
+                throw new Exception("Já existe uma roupa com esse id...");
+            }
         }
 
         this.clothesRepository.insert(clothe);
